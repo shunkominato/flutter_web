@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'hellowwww',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -29,7 +30,7 @@ class PortfolioView extends StatelessWidget {
     print(height);
     print(width);
     return Scaffold(
-      drawer: DrawerView(),
+      endDrawer: DrawerView(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -55,17 +56,15 @@ class DrawerView extends StatelessWidget {
             DrawerHeader(
               child: Text('Drawer Header'),
               decoration: BoxDecoration(
-                color: Colors.blue,
+                  gradient: LinearGradient(
+                      colors: [Colors.white, Colors.blue],
+                      tileMode: TileMode.repeated)),
+            ),
+            for (var item in kNavigationItems)
+              ListTile(
+                title: Text(item.text),
+                trailing: Icon(Icons.arrow_forward),
               ),
-            ),
-            ListTile(
-              title: Text("Item 1"),
-              trailing: Icon(Icons.arrow_forward),
-            ),
-            ListTile(
-              title: Text("Item 2"),
-              trailing: Icon(Icons.arrow_forward),
-            ),
           ],
         ));
       },
