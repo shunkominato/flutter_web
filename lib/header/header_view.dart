@@ -14,6 +14,9 @@ class HeaderView extends StatelessWidget {
     return ResponsiveBuilder(
       builder: (_, size) {
         if (size.isMobile) return HeaderMobileView();
+        final width = MediaQuery.of(context).size.width;
+        final isSmall = width < 950;
+        final imageWidth = width * 0.47;
         return Container(
           height: 864,
           width: 1507,
@@ -25,7 +28,7 @@ class HeaderView extends StatelessWidget {
                   child: HeaderBody(),
                 ),
                 FlutterLogo(
-                  size: 300,
+                  size: isSmall ? imageWidth : 300,
                 )
               ],
             ),
@@ -106,7 +109,7 @@ class HeaderMobileView extends StatelessWidget {
       child: Column(
         children: [
           FlutterLogo(size: height * 0.3),
-          Spacer(),
+          //Spacer(),
           HeaderBody(isMobile: true),
         ],
       ),

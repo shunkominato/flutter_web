@@ -14,7 +14,7 @@ class NavigationBarView extends StatelessWidget {
               child: Row(
                 children: [
                   SizedBox(width: 20),
-                  FlutterLogo(),
+                  FlutterLogo(size: 50),
                   Spacer(),
                   IconButton(
                       icon: Icon(Icons.menu),
