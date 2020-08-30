@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hellow_world/utils/constants.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:hellow_world/utils/hover_extensions.dart';
 
@@ -19,7 +20,7 @@ class HeaderView extends StatelessWidget {
         final imageWidth = width * 0.47;
         return Container(
           height: 864,
-          width: 1507,
+          width: kInitWidth,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Row(
@@ -54,12 +55,12 @@ class HeaderBody extends StatelessWidget {
       children: [
         AutoSizeText(
           'Im a Mobile',
-          style: GoogleFonts.montserrat(fontSize: 60),
+          style: Theme.of(context).textTheme.headline2,
           maxLines: 1,
         ),
         AutoSizeText(
           'developer',
-          style: GoogleFonts.montserrat(fontSize: 60),
+          style: Theme.of(context).textTheme.headline2,
           maxLines: 1,
         ),
         SizedBox(height: isMobile ?? false ? 20 : 37),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hellow_world/header/header_view.dart';
 import 'package:hellow_world/navigation_bar/navigation_bar_view.dart';
+import 'package:hellow_world/project/project_view.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 void main() {
@@ -14,9 +16,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'hellowwww',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          textTheme: TextTheme(
+            headline2: GoogleFonts.montserrat(color: Colors.black),
+          )),
       home: PortfolioView(),
     );
   }
@@ -36,6 +40,7 @@ class PortfolioView extends StatelessWidget {
           children: [
             NavigationBarView(),
             HeaderView(),
+            ProjectView(),
             Container(height: height, width: width, color: Colors.blue),
           ],
         ),
