@@ -16,11 +16,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'hellowwww',
       theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          textTheme: TextTheme(
-            headline2: GoogleFonts.montserrat(color: Colors.black),
-          )),
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        textTheme: TextTheme(
+          headline2: GoogleFonts.montserrat(color: Colors.black),
+          headline4: GoogleFonts.montserrat(fontSize: 30, color: Colors.black),
+        ),
+      ),
       home: PortfolioView(),
     );
   }

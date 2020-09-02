@@ -16,7 +16,24 @@ class ProjectItem {
 }
 
 final kProjectItems = [
-  ProjectItem(image: null, title: null, description: null, technologies: null)
+  ProjectItem(
+    image: 'images/1.jpg',
+    title: 'sample1',
+    description: 'nail',
+    technologies: ['flutter'],
+  ),
+  ProjectItem(
+    image: 'images/2.jpeg',
+    title: 'sample2',
+    description: 'nail2',
+    technologies: ['flutter2'],
+  ),
+  ProjectItem(
+    image: 'images/3.jpeg',
+    title: 'sample3',
+    description: 'nail3',
+    technologies: ['flutter3'],
+  ),
 ];
 
 class ProjectView extends StatelessWidget {
@@ -36,10 +53,47 @@ class ProjectDesktopView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         height: 864,
         width: kInitWidth,
-        color: Colors.yellow,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [Text('aa', style: Theme.of(context).textTheme.headline2)],
+          children: [
+            Text('aa', style: Theme.of(context).textTheme.headline2),
+            SizedBox(height: 20),
+            Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              for (final item in kProjectItems)
+                Expanded(
+                    child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset(item.image),
+                      SizedBox(height: 15),
+                      Text(item.title,
+                          style: Theme.of(context).textTheme.headline4),
+                      SizedBox(height: 10),
+                      Text(
+                        item.description,
+                        style: TextStyle(fontSize: 17),
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        children: [
+                          for (final tech in item.technologies)
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8.0),
+                              child: Chip(
+                                  label: Text(tech,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headline4)),
+                            )
+                        ],
+                      )
+                    ],
+                  ),
+                ))
+            ])
+          ],
         ));
   }
 }
