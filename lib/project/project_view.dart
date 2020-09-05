@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hellow_world/project/project_item_body.dart';
 import 'package:hellow_world/utils/constants.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -50,7 +51,7 @@ class ProjectDesktopView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: kScreenPadding,
         height: 864,
         width: kInitWidth,
         child: Column(
@@ -67,50 +68,11 @@ class ProjectDesktopView extends StatelessWidget {
   }
 }
 
-class ProjectItemBody extends StatelessWidget {
-  const ProjectItemBody({
-    Key key,
-    @required this.item,
-  }) : super(key: key);
-
-  final ProjectItem item;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Image.asset(item.image),
-        SizedBox(height: 15),
-        Text(item.title, style: Theme.of(context).textTheme.headline4),
-        SizedBox(height: 10),
-        Text(
-          item.description,
-          style: TextStyle(fontSize: 17),
-        ),
-        SizedBox(height: 10),
-        Row(
-          children: [
-            for (final tech in item.technologies)
-              Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: Chip(
-                    label: Text(tech,
-                        style: Theme.of(context).textTheme.headline4)),
-              )
-          ],
-        ),
-        SizedBox(height: 50),
-      ],
-    );
-  }
-}
-
 class ProjectMobileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: kScreenPadding,
         width: kInitWidth,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

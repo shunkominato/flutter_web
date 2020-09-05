@@ -26,7 +26,7 @@ class NavigationBarView extends StatelessWidget {
         return Container(
           height: 100,
           width: 1507,
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: kScreenPadding,
           child: Row(
             children: [
               FlutterLogo(),
