@@ -5,6 +5,8 @@ import 'package:hellow_world/navigation_bar/navigation_bar_view.dart';
 import 'package:hellow_world/project/project_view.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import 'skill/skills_view.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -33,16 +35,20 @@ class PortfolioView extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+    final ScrollController scrollController =
+        ScrollController(initialScrollOffset: 1750);
     print(height);
     print(width);
     return Scaffold(
       endDrawer: DrawerView(),
       body: SingleChildScrollView(
+        controller: scrollController,
         child: Column(
           children: [
             NavigationBarView(),
             HeaderView(),
             ProjectView(),
+            SkillsView(),
             Container(height: height, width: width, color: Colors.blue),
           ],
         ),
